@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>210712_Pytorch_Scalar_Vector_Matrix_Tensor_1.md | Hexo</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="Github,Pytorch,torch,Scalar,Vector,Matrix,Tensor,Deeplearning" />
+    
+    <meta name="description" content="텐서(Tensor)데이터를 표현하는 단위Scalar상숫값. 하나의 값을 표현할 때 1개의 수치로 표현한 것.1import torch  스칼라 값 정의 12scalar1 &#x3D; torch.tensor([1.])print(scalar1)  tensor([1.])  12scalar2 &#x3D; torch.tensor([3.])print(scalar2)  tensor([3.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="210712_Pytorch_Scalar_Vector_Matrix_Tensor_1.md">
+<meta property="og:url" content="https://seol4.github.io/2021/07/12/210712_Pytorch_Scalar_Vector_Matrix_Tensor_1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="텐서(Tensor)데이터를 표현하는 단위Scalar상숫값. 하나의 값을 표현할 때 1개의 수치로 표현한 것.1import torch  스칼라 값 정의 12scalar1 &#x3D; torch.tensor([1.])print(scalar1)  tensor([1.])  12scalar2 &#x3D; torch.tensor([3.])print(scalar2)  tensor([3.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-07-11T15:00:00.000Z">
+<meta property="article:modified_time" content="2021-07-12T06:29:08.403Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Github">
+<meta property="article:tag" content="Pytorch">
+<meta property="article:tag" content="torch">
+<meta property="article:tag" content="Scalar">
+<meta property="article:tag" content="Vector">
+<meta property="article:tag" content="Matrix">
+<meta property="article:tag" content="Tensor">
+<meta property="article:tag" content="Deeplearning">
+<meta name="twitter:card" content="summary">
+    
+
+    
+        <link rel="alternate" href="/" title="Hexo" type="application/atom+xml" />
+    
+
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                    
+                                
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    uncategorized
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-210712_Pytorch_Scalar_Vector_Matrix_Tensor_1" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        210712_Pytorch_Scalar_Vector_Matrix_Tensor_1.md
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2021/07/12/210712_Pytorch_Scalar_Vector_Matrix_Tensor_1/" class="article-date">
+       <time datetime="2021-07-11T15:00:00.000Z" itemprop="datePublished">2021-07-12</time>
+    </a>
+  </div>
+
+
+<div class="article-date">
+  <i class="fa fa-calendar-plus-o"></i>
+  <a href="/2021/07/12/210712_Pytorch_Scalar_Vector_Matrix_Tensor_1/" class="article-date">
+     <time datetime="2021-07-12T06:29:08.403Z" itemprop="dateModified">2021-07-12</time>
+  </a>
+</div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Deeplearning/" rel="tag">Deeplearning</a>, <a class="tag-link-link" href="/tags/Github/" rel="tag">Github</a>, <a class="tag-link-link" href="/tags/Matrix/" rel="tag">Matrix</a>, <a class="tag-link-link" href="/tags/Pytorch/" rel="tag">Pytorch</a>, <a class="tag-link-link" href="/tags/Scalar/" rel="tag">Scalar</a>, <a class="tag-link-link" href="/tags/Tensor/" rel="tag">Tensor</a>, <a class="tag-link-link" href="/tags/Vector/" rel="tag">Vector</a>, <a class="tag-link-link" href="/tags/torch/" rel="tag">torch</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            
+
+            
+
+            
+
+            <dl><dt>텐서(Tensor)</dt><dd>데이터를 표현하는 단위</dd></dl><dl><dt>Scalar</dt><dd>상숫값. 하나의 값을 표현할 때 1개의 수치로 표현한 것.</dd></dl><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br></pre></td></tr></table></figure>
+
+<p>스칼라 값 정의</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scalar1 = torch.tensor([<span class="number">1.</span>])</span><br><span class="line"><span class="built_in">print</span>(scalar1)</span><br></pre></td></tr></table></figure>
+
+<pre><code>tensor([1.])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scalar2 = torch.tensor([<span class="number">3.</span>])</span><br><span class="line"><span class="built_in">print</span>(scalar2)</span><br></pre></td></tr></table></figure>
+
+<pre><code>tensor([3.])
+</code></pre>
+<p>스칼라 값 간의 사칙연산</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">add_scalar = scalar1 + scalar2</span><br><span class="line"><span class="built_in">print</span>(add_scalar)</span><br></pre></td></tr></table></figure>
+
+<pre><code>tensor([4.])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sub_scalar = scalar1 - scalar2</span><br><span class="line"><span class="built_in">print</span>(sub_scalar)</span><br></pre></td></tr></table></figure>
+
+<pre><code>tensor([-2.])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mul_scalar = scalar1 * scalar2</span><br><span class="line"><span class="built_in">print</span>(mul_scalar)</span><br></pre></td></tr></table></figure>
+
+<pre><code>tensor([3.])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">div_scalar = scalar1 / scalar2</span><br><span class="line"><span class="built_in">print</span>(div_scalar)</span><br></pre></td></tr></table></figure>
+
+<pre><code>tensor([0.3333])
+</code></pre>
+<p>torch 모듈에 내장된 메서드를 이용한 스칼라 값 간의 사칙연산</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.add(scalar1, scalar2)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>tensor([4.])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.sub(scalar1, scalar2)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>tensor([-2.])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.mul(scalar1, scalar2)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>tensor([3.])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.div(scalar1, scalar2)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>tensor([0.3333])
+</code></pre>
+<dl><dt>Vector</dt><dd>하나의 값을 표현할 때 2개 이상의 수치로 표현한 것.</dd></dl><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vector1 = torch.tensor([<span class="number">1.</span>, <span class="number">2.</span>, <span class="number">3.</span>])</span><br><span class="line"><span class="built_in">print</span>(vector1)</span><br></pre></td></tr></table></figure>
+
+<pre><code>tensor([1., 2., 3.])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vector2 = torch.tensor([<span class="number">4.</span>, <span class="number">5.</span>, <span class="number">6.</span>])</span><br><span class="line"><span class="built_in">print</span>(vector2)</span><br></pre></td></tr></table></figure>
+
+<pre><code>tensor([4., 5., 6.])
+</code></pre>
+<dl><dt>벡터 값 간의 사칙연산</dt><dd>요소별로(element-wise) 연산된다.</dd></dl><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">add_vector = vector1 + vector2</span><br><span class="line"><span class="built_in">print</span>(add_vector)</span><br></pre></td></tr></table></figure>
+
+<pre><code>tensor([5., 7., 9.])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sub_vector = vector1 - vector2</span><br><span class="line"><span class="built_in">print</span>(sub_vector)</span><br></pre></td></tr></table></figure>
+
+<pre><code>tensor([-3., -3., -3.])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mul_vector = vector1 * vector2</span><br><span class="line"><span class="built_in">print</span>(mul_vector)</span><br></pre></td></tr></table></figure>
+
+<pre><code>tensor([ 4., 10., 18.])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">div_vector = vector1 / vector2</span><br><span class="line"><span class="built_in">print</span>(div_vector)</span><br></pre></td></tr></table></figure>
+
+<pre><code>tensor([0.2500, 0.4000, 0.5000])
+</code></pre>
+<p>torch 모듈에 내장된 메서드를 사용한 벡터 값 간의 사칙연산</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.add(vector1, vector2)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>tensor([5., 7., 9.])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.sub(vector1, vector2)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>tensor([-3., -3., -3.])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.mul(vector1, vector2)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>tensor([ 4., 10., 18.])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.div(vector1, vector2)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>tensor([0.2500, 0.4000, 0.5000])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.dot(vector1, vector2) <span class="comment"># 벡터 값 내적 연산. (1*4) + (2*5) + (3*6) = 4 + 10 + 18 = 32</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>tensor(32.)
+</code></pre>
+<dl><dt>행렬(Matrix)</dt><dd>두 개 이상의 벡터 값을 통합해 구성된 값. 벡터 값 간 연산 속도를 빠르게 진행할 수 있는 선형 대수의 기본 단위.</dd></dl><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">matrix1 = torch.tensor([[<span class="number">1.</span>, <span class="number">2.</span>], [<span class="number">3.</span>, <span class="number">4.</span>]])</span><br><span class="line"><span class="built_in">print</span>(matrix1)</span><br></pre></td></tr></table></figure>
+
+<pre><code>tensor([[1., 2.],
+        [3., 4.]])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">matrix2 = torch.tensor([[<span class="number">5.</span>, <span class="number">6.</span>], [<span class="number">7.</span>, <span class="number">8.</span>]])</span><br><span class="line"><span class="built_in">print</span>(matrix2)</span><br></pre></td></tr></table></figure>
+
+<pre><code>tensor([[5., 6.],
+        [7., 8.]])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sum_matrix = matrix1 + matrix2</span><br><span class="line"><span class="built_in">print</span>(sum_matrix)</span><br></pre></td></tr></table></figure>
+
+<pre><code>tensor([[ 6.,  8.],
+        [10., 12.]])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sub_matrix = matrix1 - matrix2</span><br><span class="line"><span class="built_in">print</span>(sub_matrix)</span><br></pre></td></tr></table></figure>
+
+<pre><code>tensor([[-4., -4.],
+        [-4., -4.]])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mul_matrix = matrix1 * matrix2</span><br><span class="line"><span class="built_in">print</span>(mul_matrix)</span><br></pre></td></tr></table></figure>
+
+<pre><code>tensor([[ 5., 12.],
+        [21., 32.]])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">div_matrix = matrix1 / matrix2</span><br><span class="line"><span class="built_in">print</span>(div_matrix)</span><br></pre></td></tr></table></figure>
+
+<pre><code>tensor([[0.2000, 0.3333],
+        [0.4286, 0.5000]])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.add(matrix1, matrix2)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>tensor([[ 6.,  8.],
+        [10., 12.]])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.sub(matrix1, matrix2)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>tensor([[-4., -4.],
+        [-4., -4.]])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.mul(matrix1, matrix2)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>tensor([[ 5., 12.],
+        [21., 32.]])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.div(matrix1, matrix2)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>tensor([[0.2000, 0.3333],
+        [0.4286, 0.5000]])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.matmul(matrix1, matrix2)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>tensor([[19., 22.],
+        [43., 50.]])
+</code></pre>
+<dl><dt>텐서</dt><dd>2차원 이상의 배열.</dd></dl><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tensor1 = torch.tensor([[[<span class="number">1.</span>, <span class="number">2.</span>], [<span class="number">3.</span>, <span class="number">4.</span>]], [[<span class="number">5.</span>, <span class="number">6.</span>], [<span class="number">7.</span>, <span class="number">8.</span>]]])</span><br><span class="line"><span class="built_in">print</span>(tensor1)</span><br></pre></td></tr></table></figure>
+
+<pre><code>tensor([[[1., 2.],
+         [3., 4.]],
+
+        [[5., 6.],
+         [7., 8.]]])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tensor2 = torch.tensor([[[<span class="number">9.</span>, <span class="number">10.</span>], [<span class="number">11.</span>, <span class="number">12.</span>]], [[<span class="number">13.</span>, <span class="number">14.</span>], [<span class="number">15.</span>, <span class="number">16.</span>]]])</span><br><span class="line"><span class="built_in">print</span>(tensor2)</span><br></pre></td></tr></table></figure>
+
+<pre><code>tensor([[[ 9., 10.],
+         [11., 12.]],
+
+        [[13., 14.],
+         [15., 16.]]])
+</code></pre>
+<p>텐서 값 간의 사칙연산</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sum_tensor = tensor1 + tensor2</span><br><span class="line"><span class="built_in">print</span>(sum_tensor)</span><br></pre></td></tr></table></figure>
+
+<pre><code>tensor([[[10., 12.],
+         [14., 16.]],
+
+        [[18., 20.],
+         [22., 24.]]])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sub_tensor = tensor1 - tensor2</span><br><span class="line"><span class="built_in">print</span>(sub_tensor)</span><br></pre></td></tr></table></figure>
+
+<pre><code>tensor([[[-8., -8.],
+         [-8., -8.]],
+
+        [[-8., -8.],
+         [-8., -8.]]])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mul_tensor = tensor1 * tensor2</span><br><span class="line"><span class="built_in">print</span>(mul_tensor)</span><br></pre></td></tr></table></figure>
+
+<pre><code>tensor([[[  9.,  20.],
+         [ 33.,  48.]],
+
+        [[ 65.,  84.],
+         [105., 128.]]])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">div_tensor = tensor1 / tensor2</span><br><span class="line"><span class="built_in">print</span>(div_tensor)</span><br></pre></td></tr></table></figure>
+
+<pre><code>tensor([[[0.1111, 0.2000],
+         [0.2727, 0.3333]],
+
+        [[0.3846, 0.4286],
+         [0.4667, 0.5000]]])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.add(tensor1, tensor2)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>tensor([[[10., 12.],
+         [14., 16.]],
+
+        [[18., 20.],
+         [22., 24.]]])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.sub(tensor1, tensor2)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>tensor([[[-8., -8.],
+         [-8., -8.]],
+
+        [[-8., -8.],
+         [-8., -8.]]])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.mul(tensor1, tensor2)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>tensor([[[  9.,  20.],
+         [ 33.,  48.]],
+
+        [[ 65.,  84.],
+         [105., 128.]]])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.div(tensor1, tensor2)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>tensor([[[0.1111, 0.2000],
+         [0.2727, 0.3333]],
+
+        [[0.3846, 0.4286],
+         [0.4667, 0.5000]]])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.matmul(tensor1, tensor2)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>tensor([[[ 31.,  34.],
+         [ 71.,  78.]],
+
+        [[155., 166.],
+         [211., 226.]]])
+</code></pre>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://seol4.github.io/2021/07/12/210712_Pytorch_Scalar_Vector_Matrix_Tensor_1/" data-id="ckr08wtsp0000wcta9wn4hm14" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "John Doe"
+        },
+        "headline": "210712_Pytorch_Scalar_Vector_Matrix_Tensor_1.md",
+        "image": "https://seol4.github.io",
+        "keywords": "Github Pytorch torch Scalar Vector Matrix Tensor Deeplearning",
+        "genre": "",
+        "datePublished": "2021-07-12",
+        "dateCreated": "2021-07-12",
+        "dateModified": "2021-07-12",
+        "url": "https://seol4.github.io/2021/07/12/210712_Pytorch_Scalar_Vector_Matrix_Tensor_1/",
+        "description": "텐서(Tensor)데이터를 표현하는 단위Scalar상숫값. 하나의 값을 표현할 때 1개의 수치로 표현한 것.1import torch
+
+스칼라 값 정의
+12scalar1 = torch.tensor([1.])print(scalar1)
+
+tensor([1.])
+
+12scalar2 = torch.tensor([3.])print(scalar2)
+
+tensor([3.",
+        "wordCount": 1068
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="twitter" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-twitter"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="stack-overflow" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-stack-overflow"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="weibo" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-weibo"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2021/06/29/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">Hello World</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/07/12/210712_Pytorch_Scalar_Vector_Matrix_Tensor_1/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2021/07/12/210712_Pytorch_Scalar_Vector_Matrix_Tensor_1/" class="title">210712_Pytorch_Scalar_Vector_Matrix_Tensor_1.md</a></p>
+                            <p class="item-date"><time datetime="2021-07-11T15:00:00.000Z" itemprop="datePublished">2021-07-12</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/06/29/hello-world/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/source/img/save1.png)" alt="Hello World" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2021/06/29/hello-world/" class="title">Hello World</a></p>
+                            <p class="item-date"><time datetime="2021-06-28T15:00:00.000Z" itemprop="datePublished">2021-06-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/06/29/210629_Github_image_upload_1/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/source/img/wreking_ball_1.jpeg)" alt="210629_Github_image_upload_1.md" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2021/06/29/210629_Github_image_upload_1/" class="title">210629_Github_image_upload_1.md</a></p>
+                            <p class="item-date"><time datetime="2021-06-28T15:00:00.000Z" itemprop="datePublished">2021-06-29</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/06/25/210629_Plotly_chart_test/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2021/06/25/210629_Plotly_chart_test/" class="title"></a></p>
+                            <p class="item-date"><time datetime="2021-06-25T01:22:08.266Z" itemprop="datePublished">2021-06-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2021/06/25/210623/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2021/06/25/210623/" class="title">NumPy</a></p>
+                            <p class="item-date"><time datetime="2021-06-24T15:00:00.000Z" itemprop="datePublished">2021-06-25</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a><span class="archive-list-count">5</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deeplearning/" rel="tag">Deeplearning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Matrix/" rel="tag">Matrix</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NumPy-Github/" rel="tag">NumPy, Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Plotly/" rel="tag">Plotly</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Proxy/" rel="tag">Proxy</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Pytorch/" rel="tag">Pytorch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scalar/" rel="tag">Scalar</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensor/" rel="tag">Tensor</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vector/" rel="tag">Vector</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/image/" rel="tag">image</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/torch/" rel="tag">torch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/upload/" rel="tag">upload</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Deeplearning/" style="font-size: 10px;">Deeplearning</a> <a href="/tags/Github/" style="font-size: 20px;">Github</a> <a href="/tags/Matrix/" style="font-size: 10px;">Matrix</a> <a href="/tags/NumPy-Github/" style="font-size: 10px;">NumPy, Github</a> <a href="/tags/Plotly/" style="font-size: 10px;">Plotly</a> <a href="/tags/Proxy/" style="font-size: 10px;">Proxy</a> <a href="/tags/Pytorch/" style="font-size: 10px;">Pytorch</a> <a href="/tags/Scalar/" style="font-size: 10px;">Scalar</a> <a href="/tags/Tensor/" style="font-size: 10px;">Tensor</a> <a href="/tags/Vector/" style="font-size: 10px;">Vector</a> <a href="/tags/image/" style="font-size: 10px;">image</a> <a href="/tags/torch/" style="font-size: 10px;">torch</a> <a href="/tags/upload/" style="font-size: 10px;">upload</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2021 John Doe</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://seol4.github.io/2021/07/12/210712_Pytorch_Scalar_Vector_Matrix_Tensor_1/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
